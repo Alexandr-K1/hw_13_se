@@ -1,0 +1,25 @@
+{% extends 'quotes/base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Quotes tagged with "{{ tag_name }}"</h2>
+    <ul class="list-group mt-3">
+        {% for quote in quotes %}
+        <li class="list-group-item">
+            <p class="mb-1">{{ quote.quote }}</p>
+            <small>by
+                <a href="{% url 'quotes:author_detail' author_id=quote.author.id %}">{{ quote.author.fullname }}</a>
+            </small>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted">No quotes found for this tag.</li>
+        {% endfor %}
+    </ul>
+
+    <div class="mt-4">
+        <a href="{% url 'quotes:home' %}" class="btn btn-primary">Return to home</a>
+    </div>
+
+</div>
+
+{% endblock %}

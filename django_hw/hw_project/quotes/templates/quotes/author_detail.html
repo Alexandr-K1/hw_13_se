@@ -1,0 +1,28 @@
+{% extends 'quotes/base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>{{ author.fullname }}</h2>
+
+    <div class="author_details mt-4">
+        <p><strong>Born date</strong>{{ author.born_date }}</p>
+        <p><strong>Born location</strong>{{ author.born_location }}</p>
+        <p><strong>Description</strong>{{ author.description }}</p>
+    </div>
+
+    <h3 class="mt-5">Quotes</h3>
+    <ul class="list-group mt-3">
+        {% for quote in quotes %}
+        <li class="list-group-item">{{ quote.quote }}</li>
+        {% empty %}
+        <li class="list-group-item text-muted">This author has no citations.</li>
+        {% endfor %}
+    </ul>
+
+    <div class="mt-4">
+        <a href="{% url 'quotes:home' %}" class="btn btn-primary">Return to home</a>
+    </div>
+
+</div>
+
+{% endblock %}

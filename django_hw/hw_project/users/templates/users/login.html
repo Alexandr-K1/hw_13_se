@@ -1,0 +1,44 @@
+{% extends 'quotes/base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Login User</h2>
+
+    {% if form.errors and form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        {{form.non_field_errors}}
+    </div>
+    {% endif %}
+
+    <form action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Username
+                {{ form.username }}
+            </label>
+            <span>{{form.errors.username}}</span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password
+                {{ form.password }}
+            </label>
+            <span>{{form.errors.password}}</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+        <div class="small text-center">
+            <a href="{% url 'users:password_reset' %}" class="text-center"><i>Forgot Password?</i></a>
+        </div>
+    </form>
+
+     {% if user.is_authenticated %}
+        {% if user.profile %}
+            <div>
+                <img src="{{ user.profile.avatar.url }}" alt="avatar of user"/>
+            </div>
+        {% else %}
+            <p>No profile available.</p>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

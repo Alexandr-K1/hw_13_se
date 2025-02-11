@@ -1,0 +1,14 @@
+{% extends 'quotes/base.html' %}
+
+{% block body %}
+<h2>Scrape Data</h2>
+
+<form method="post" action="{% url 'quotes:scrape_data' %}">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="scrape-url">Scraping site URL:</label>
+    <input type="url" id="scrape-url" name="scrape_url" class="form-control" placeholder="Enter the URL to scrape data from" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Scrap data</button>
+</form>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'quotes/base.html' %}
+{% load extract %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-8">
+        {% for quote in quotes %}
+        <div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
+        <span class="text" itemprop="text">
+            {{quote.quote}}
+        </span>
+            <span>by <small class="author" itemprop="author">{{quote.author.fullname}}</small></span>
+                {% if quote.author and quote.author.id %}
+                <p><a href="{% url 'quotes:author_detail' author_id=quote.author.id %}">(about)</a></p>
+                {% else %}
+                <p><strong>Author</strong>: Unknown</p>
+                {% endif %}
+
+
+            <div class="tags">
+                Tags:
+                {% for tag in quote.tags.all %}
+                {% if tag %}
+                <a class="tag" href="{% url 'quotes:quotes_by_tag' tag.name %}">{{ tag.name }}</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        <nav>
+            <ul class="pager">
+                <li class="previous">
+                    <a class="{% if not quotes.has_previous %} disabled {% endif %}"
+                       href="{% if quotes.has_previous %} {% url 'quotes:root_paginate' quotes.previous_page_number %} {% else %} # {% endif %}">
+                        <span aria-hidden="true">←</span> Previous
+                    </a>
+                </li>
+                <li class="next">
+                    <a class="{% if not quotes.has_next %} disabled {% endif %}"
+                       href="{% if quotes.has_next %} {% url 'quotes:root_paginate' quotes.next_page_number %} {% else %} # {% endif %}">
+                        Next <span aria-hidden="true">→</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="col-md-4">
+        <div class="top-tags">
+            <h3>Top ten tags</h3>
+            <ul>
+                {% for tag in top_tags %}
+                <li>
+                    <a href="{% url 'quotes:quotes_by_tag' tag.name %}">
+                        {{ tag.name }} ({{ tag.num_quotes }})
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
