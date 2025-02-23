@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>HW_14_DJANGO documentation &#8212; HW_14_DJANGO  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=279e0f84" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">HW_14_DJANGO  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">HW_14_DJANGO documentation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="hw-14-django-documentation">
+<h1>HW_14_DJANGO documentation<a class="headerlink" href="#hw-14-django-documentation" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="module-manage">
+<span id="rest-api-main"></span><h1>REST API main<a class="headerlink" href="#module-manage" title="Link to this heading">¶</a></h1>
+<p>Django’s command-line utility for administrative tasks.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="manage.main">
+<span class="sig-prename descclassname"><span class="pre">manage.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#manage.main" title="Link to this definition">¶</a></dt>
+<dd><p>Run administrative tasks.</p>
+</dd></dl>
+
+</section>
+<section id="module-quotes.templatetags.extract">
+<span id="rest-api-quotes-extract"></span><h1>REST API Quotes - Extract<a class="headerlink" href="#module-quotes.templatetags.extract" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="quotes.templatetags.extract.get_author">
+<span class="sig-prename descclassname"><span class="pre">quotes.templatetags.extract.</span></span><span class="sig-name descname"><span class="pre">get_author</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quotes.templatetags.extract.get_author" title="Link to this definition">¶</a></dt>
+<dd><p>The get_author function takes in an id and returns the fullname of the author
+:param id_(author_id): The ID of the author in the MongoDB collection
+:type id_(author_id): int
+:return: The fullname of the author
+:rtype: str</p>
+</dd></dl>
+
+</section>
+<section id="module-quotes.utils">
+<span id="rest-api-quotes-utils"></span><h1>REST API Quotes - Utils<a class="headerlink" href="#module-quotes.utils" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="quotes.utils.get_mongodb">
+<span class="sig-prename descclassname"><span class="pre">quotes.utils.</span></span><span class="sig-name descname"><span class="pre">get_mongodb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quotes.utils.get_mongodb" title="Link to this definition">¶</a></dt>
+<dd><p>The get_mongodb function connects to the MongoDB database and returns the database object
+:return: A reference to the database instance
+:rtype: database</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quotes.utils.scrape_and_save_data">
+<span class="sig-prename descclassname"><span class="pre">quotes.utils.</span></span><span class="sig-name descname"><span class="pre">scrape_and_save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quotes.utils.scrape_and_save_data" title="Link to this definition">¶</a></dt>
+<dd><p>The scrape_and_save_data function takes in a URL and scrapes data from the website and saves it to the database
+:param url: The URL of the website to scrape
+:type url: str
+:return: A message indicating that the data was successfully saved
+:rtype: str
+:raises Exception: If the request fails</p>
+</dd></dl>
+
+</section>
+<section id="module-quotes.views">
+<span id="rest-api-quotes-views"></span><h1>REST API Quotes - Views<a class="headerlink" href="#module-quotes.views" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="quotes.views.add_author">
+<span class="sig-prename descclassname"><span class="pre">quotes.views.</span></span><span class="sig-name descname"><span class="pre">add_author</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quotes.views.add_author" title="Link to this definition">¶</a></dt>
+<dd><p>The add_author function adds a new author to the database
+:param request: The request object
+:type request: HttpRequest
+:return: An HTTP response rendering the add_author template with the form
+:rtype: HttpResponse</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quotes.views.add_quote">
+<span class="sig-prename descclassname"><span class="pre">quotes.views.</span></span><span class="sig-name descname"><span class="pre">add_quote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quotes.views.add_quote" title="Link to this definition">¶</a></dt>
+<dd><p>The add_quote function adds a new quote to the database
+:param request: The HTTP request object
+:type request: HttpRequest
+:return: An HTTP response rendering the add_quote template with the form
+:rtype: HttpResponse</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quotes.views.author_detail">
+<span class="sig-prename descclassname"><span class="pre">quotes.views.</span></span><span class="sig-name descname"><span class="pre">author_detail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quotes.views.author_detail" title="Link to this definition">¶</a></dt>
+<dd><p>The author_detail function renders the author_detail template
+:param request: The HTTP request object
+:type request: HttpRequest
+:param author_id: The ID of the author
+:type author_id: int
+:return: An HTTP response rendering the author detail template
+:rtype: HttpResponse</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quotes.views.main">
+<span class="sig-prename descclassname"><span class="pre">quotes.views.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quotes.views.main" title="Link to this definition">¶</a></dt>
+<dd><p>The main function renders the index template
+:param request: The HTTP request object
+:type request: HttpRequest
+:param page: The page number for pagination
+:type page: int
+:return: An HTTP response rendering the index template
+:rtype: HttpResponse</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quotes.views.quotes_by_tag">
+<span class="sig-prename descclassname"><span class="pre">quotes.views.</span></span><span class="sig-name descname"><span class="pre">quotes_by_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quotes.views.quotes_by_tag" title="Link to this definition">¶</a></dt>
+<dd><p>The quotes_by_tag function renders the quotes_by_tag template
+:param request: The HTTP request object
+:type request: HttpRequest
+:param tag_name: The name of the tag to filter quotes by
+:type tag_name: str
+:return: An HTTP response rendering the quotes filtered by the given tag
+:rtype: HttpResponse</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quotes.views.scrape_data">
+<span class="sig-prename descclassname"><span class="pre">quotes.views.</span></span><span class="sig-name descname"><span class="pre">scrape_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quotes.views.scrape_data" title="Link to this definition">¶</a></dt>
+<dd><p>The scrape_data function scrapes data from a website and saves it to the database
+:param request: The HTTP request object
+:type request: HttpRequest
+:return: An HTTP response rendering the scrape page or redirecting to the home page
+:rtype: HttpResponse
+:raises Exception: If there is an error during scraping</p>
+</dd></dl>
+
+</section>
+<section id="module-users.signals">
+<span id="rest-api-users-signals"></span><h1>REST API Users - Signals<a class="headerlink" href="#module-users.signals" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="users.signals.create_profile">
+<span class="sig-prename descclassname"><span class="pre">users.signals.</span></span><span class="sig-name descname"><span class="pre">create_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.signals.create_profile" title="Link to this definition">¶</a></dt>
+<dd><p>The create_profile function creates a profile for a user
+:param sender: The model class that sent the signal
+:type sender: User
+:param instance: The instance of the model that triggered the signal
+:type instance: User
+:param created: A boolean value indicating whether the instance was created
+:type created: bool
+:param kwargs: Additional keyword arguments
+:type kwargs: dict</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="users.signals.save_profile">
+<span class="sig-prename descclassname"><span class="pre">users.signals.</span></span><span class="sig-name descname"><span class="pre">save_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.signals.save_profile" title="Link to this definition">¶</a></dt>
+<dd><p>The save_profile function saves the profile
+:param sender: The model class that sent the signal
+:type sender: User
+:param instance: The instance of the model that triggered the signal
+:type instance: User
+:param kwargs: Additional keyword arguments
+:type kwargs: dict</p>
+</dd></dl>
+
+</section>
+<section id="module-users.views">
+<span id="rest-api-users-views"></span><h1>REST API Users - Views<a class="headerlink" href="#module-users.views" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.CustomPasswordResetConfirmView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">CustomPasswordResetConfirmView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.CustomPasswordResetConfirmView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SuccessMessageMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PasswordResetConfirmView</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.CustomPasswordResetConfirmView.form_valid">
+<span class="sig-name descname"><span class="pre">form_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.CustomPasswordResetConfirmView.form_valid" title="Link to this definition">¶</a></dt>
+<dd><p>If the form is valid, redirect to the supplied URL.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.CustomPasswordResetConfirmView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/users/login/'</span></em><a class="headerlink" href="#users.views.CustomPasswordResetConfirmView.success_url" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.CustomPasswordResetConfirmView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users/password_reset_confirm.html'</span></em><a class="headerlink" href="#users.views.CustomPasswordResetConfirmView.template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.RegisterView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">RegisterView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.RegisterView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">View</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.RegisterView.dispatch">
+<span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.RegisterView.dispatch" title="Link to this definition">¶</a></dt>
+<dd><p>The dispatch function is used to check if the user is authenticated
+:param request: The HTTP request object
+:type request: HttpRequest
+:param args: Additional positional arguments
+:type args: tuple
+:param kwargs: Additional keyword arguments
+:type kwargs: dict
+:return: A redirection response or the normal dispatch to handle the request
+:rtype: HttpResponse or HttpResponseRedirect</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.RegisterView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#users.views.RegisterView.form_class" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">RegisterForm</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.RegisterView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.RegisterView.get" title="Link to this definition">¶</a></dt>
+<dd><p>The get function is used to render the signup page
+:param request: The HTTP request object
+:type request: HttpRequest
+:return: An HTTP response rendering the signup page
+:rtype: HttpResponse</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="users.views.RegisterView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.RegisterView.post" title="Link to this definition">¶</a></dt>
+<dd><p>The post function is used to handle the form submission
+:param request: The HTTP request object
+:type request: HttpRequest
+:return: A response either rendering the form with errors or redirecting to the login page
+:rtype: HttpResponse or HttpResponseRedirect</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.RegisterView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users/signup.html'</span></em><a class="headerlink" href="#users.views.RegisterView.template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="users.views.ResetPasswordView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">ResetPasswordView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.ResetPasswordView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SuccessMessageMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PasswordResetView</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ResetPasswordView.email_template_name">
+<span class="sig-name descname"><span class="pre">email_template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users/password_reset_email.html'</span></em><a class="headerlink" href="#users.views.ResetPasswordView.email_template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ResetPasswordView.html_email_template_name">
+<span class="sig-name descname"><span class="pre">html_email_template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users/password_reset_email.html'</span></em><a class="headerlink" href="#users.views.ResetPasswordView.html_email_template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ResetPasswordView.subject_template_name">
+<span class="sig-name descname"><span class="pre">subject_template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users/password_reset_subject.txt'</span></em><a class="headerlink" href="#users.views.ResetPasswordView.subject_template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ResetPasswordView.success_message">
+<span class="sig-name descname"><span class="pre">success_message</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'An</span> <span class="pre">email</span> <span class="pre">with</span> <span class="pre">instructions</span> <span class="pre">to</span> <span class="pre">reset</span> <span class="pre">your</span> <span class="pre">password</span> <span class="pre">has</span> <span class="pre">been</span> <span class="pre">sent</span> <span class="pre">to</span> <span class="pre">%(email)s.'</span></em><a class="headerlink" href="#users.views.ResetPasswordView.success_message" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ResetPasswordView.success_url">
+<span class="sig-name descname"><span class="pre">success_url</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/users/reset_password/done/'</span></em><a class="headerlink" href="#users.views.ResetPasswordView.success_url" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="users.views.ResetPasswordView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'users/password_reset.html'</span></em><a class="headerlink" href="#users.views.ResetPasswordView.template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="users.views.profile">
+<span class="sig-prename descclassname"><span class="pre">users.views.</span></span><span class="sig-name descname"><span class="pre">profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#users.views.profile" title="Link to this definition">¶</a></dt>
+<dd><p>The profile function is used to render the profile page
+:param request: The HTTP request object
+:type request: HttpRequest
+:return: An HTTP response rendering the profile page
+:rtype: HttpResponse</p>
+</dd></dl>
+
+</section>
+<section id="module-utils.add_quotes_to_mongo">
+<span id="rest-api-utils-add-quotes-to-mongo"></span><h1>REST API Utils - Add quotes to Mongo<a class="headerlink" href="#module-utils.add_quotes_to_mongo" title="Link to this heading">¶</a></h1>
+<p>This script loads quotes from a JSON file and inserts them into a MongoDB database.
+Each quote is associated with an existing author in the database.</p>
+<dl class="simple">
+<dt>Dependencies:</dt><dd><ul class="simple">
+<li><p>‘bson.objectid.ObjectId’ for working with MongoDB ObjectIds.</p></li>
+<li><p>‘quotes.utils.get_mongodb’ for establishing a database connection.</p></li>
+</ul>
+</dd>
+<dt>Database Collections:</dt><dd><ul class="simple">
+<li><p>‘authors’: Stores author details, including ‘fullname’.</p></li>
+<li><p>‘quotes’: Stores quotes with references to authors.</p></li>
+</ul>
+</dd>
+<dt>Process:</dt><dd><ol class="arabic simple">
+<li><p>Reads ‘quotes.json’ from the current directory.</p></li>
+<li><p>Finds the corresponding author in the ‘authors’ collection by ‘fullname’.</p></li>
+<li><p>Inserts the quote into the ‘quotes’ collection, linking it to the author’s ObjectId.</p></li>
+</ol>
+</dd>
+</dl>
+</section>
+<section id="module-utils.migration">
+<span id="rest-api-utils-migration"></span><h1>REST API Utils - Migration<a class="headerlink" href="#module-utils.migration" title="Link to this heading">¶</a></h1>
+<p>This script migrates data from a MongoDB database to a Django-based PostgreSQL or SQLite database.
+It transfers authors and quotes while preserving relationships and ensuring data integrity.</p>
+<dl class="simple">
+<dt>Dependencies:</dt><dd><ul class="simple">
+<li><p>‘quotes.utils.get_mongodb’ for establishing a MongoDB connection.</p></li>
+<li><p>‘quotes.models.Author’, ‘quotes.models.Quote’, ‘quotes.models.Tag’ for Django ORM operations.</p></li>
+<li><p>‘Django’ for database interactions.</p></li>
+</ul>
+</dd>
+<dt>Process:</dt><dd><ol class="arabic simple">
+<li><p>Loads authors from MongoDB and creates corresponding ‘Author’ records in Django.</p></li>
+<li><p>Loads quotes from MongoDB, ensuring:
+- Tags are created or retrieved with a maximum length of 100 characters.
+- Quotes are added only if they don’t already exist in the database.
+- Each quote is linked to an existing author and associated tags.</p></li>
+</ol>
+</dd>
+<dt>Usage:</dt><dd><dl class="simple">
+<dt>Run the script directly:</dt><dd><p>‘python migration.py’</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.migration.migrate_data_from_mongo_to_django">
+<span class="sig-prename descclassname"><span class="pre">utils.migration.</span></span><span class="sig-name descname"><span class="pre">migrate_data_from_mongo_to_django</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.migration.migrate_data_from_mongo_to_django" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">HW_14_DJANGO documentation</a></li>
+<li><a class="reference internal" href="#module-manage">REST API main</a><ul>
+<li><a class="reference internal" href="#manage.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-quotes.templatetags.extract">REST API Quotes - Extract</a><ul>
+<li><a class="reference internal" href="#quotes.templatetags.extract.get_author"><code class="docutils literal notranslate"><span class="pre">get_author()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-quotes.utils">REST API Quotes - Utils</a><ul>
+<li><a class="reference internal" href="#quotes.utils.get_mongodb"><code class="docutils literal notranslate"><span class="pre">get_mongodb()</span></code></a></li>
+<li><a class="reference internal" href="#quotes.utils.scrape_and_save_data"><code class="docutils literal notranslate"><span class="pre">scrape_and_save_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-quotes.views">REST API Quotes - Views</a><ul>
+<li><a class="reference internal" href="#quotes.views.add_author"><code class="docutils literal notranslate"><span class="pre">add_author()</span></code></a></li>
+<li><a class="reference internal" href="#quotes.views.add_quote"><code class="docutils literal notranslate"><span class="pre">add_quote()</span></code></a></li>
+<li><a class="reference internal" href="#quotes.views.author_detail"><code class="docutils literal notranslate"><span class="pre">author_detail()</span></code></a></li>
+<li><a class="reference internal" href="#quotes.views.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li><a class="reference internal" href="#quotes.views.quotes_by_tag"><code class="docutils literal notranslate"><span class="pre">quotes_by_tag()</span></code></a></li>
+<li><a class="reference internal" href="#quotes.views.scrape_data"><code class="docutils literal notranslate"><span class="pre">scrape_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-users.signals">REST API Users - Signals</a><ul>
+<li><a class="reference internal" href="#users.signals.create_profile"><code class="docutils literal notranslate"><span class="pre">create_profile()</span></code></a></li>
+<li><a class="reference internal" href="#users.signals.save_profile"><code class="docutils literal notranslate"><span class="pre">save_profile()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-users.views">REST API Users - Views</a><ul>
+<li><a class="reference internal" href="#users.views.CustomPasswordResetConfirmView"><code class="docutils literal notranslate"><span class="pre">CustomPasswordResetConfirmView</span></code></a><ul>
+<li><a class="reference internal" href="#users.views.CustomPasswordResetConfirmView.form_valid"><code class="docutils literal notranslate"><span class="pre">CustomPasswordResetConfirmView.form_valid()</span></code></a></li>
+<li><a class="reference internal" href="#users.views.CustomPasswordResetConfirmView.success_url"><code class="docutils literal notranslate"><span class="pre">CustomPasswordResetConfirmView.success_url</span></code></a></li>
+<li><a class="reference internal" href="#users.views.CustomPasswordResetConfirmView.template_name"><code class="docutils literal notranslate"><span class="pre">CustomPasswordResetConfirmView.template_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#users.views.RegisterView"><code class="docutils literal notranslate"><span class="pre">RegisterView</span></code></a><ul>
+<li><a class="reference internal" href="#users.views.RegisterView.dispatch"><code class="docutils literal notranslate"><span class="pre">RegisterView.dispatch()</span></code></a></li>
+<li><a class="reference internal" href="#users.views.RegisterView.form_class"><code class="docutils literal notranslate"><span class="pre">RegisterView.form_class</span></code></a></li>
+<li><a class="reference internal" href="#users.views.RegisterView.get"><code class="docutils literal notranslate"><span class="pre">RegisterView.get()</span></code></a></li>
+<li><a class="reference internal" href="#users.views.RegisterView.post"><code class="docutils literal notranslate"><span class="pre">RegisterView.post()</span></code></a></li>
+<li><a class="reference internal" href="#users.views.RegisterView.template_name"><code class="docutils literal notranslate"><span class="pre">RegisterView.template_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#users.views.ResetPasswordView"><code class="docutils literal notranslate"><span class="pre">ResetPasswordView</span></code></a><ul>
+<li><a class="reference internal" href="#users.views.ResetPasswordView.email_template_name"><code class="docutils literal notranslate"><span class="pre">ResetPasswordView.email_template_name</span></code></a></li>
+<li><a class="reference internal" href="#users.views.ResetPasswordView.html_email_template_name"><code class="docutils literal notranslate"><span class="pre">ResetPasswordView.html_email_template_name</span></code></a></li>
+<li><a class="reference internal" href="#users.views.ResetPasswordView.subject_template_name"><code class="docutils literal notranslate"><span class="pre">ResetPasswordView.subject_template_name</span></code></a></li>
+<li><a class="reference internal" href="#users.views.ResetPasswordView.success_message"><code class="docutils literal notranslate"><span class="pre">ResetPasswordView.success_message</span></code></a></li>
+<li><a class="reference internal" href="#users.views.ResetPasswordView.success_url"><code class="docutils literal notranslate"><span class="pre">ResetPasswordView.success_url</span></code></a></li>
+<li><a class="reference internal" href="#users.views.ResetPasswordView.template_name"><code class="docutils literal notranslate"><span class="pre">ResetPasswordView.template_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#users.views.profile"><code class="docutils literal notranslate"><span class="pre">profile()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-utils.add_quotes_to_mongo">REST API Utils - Add quotes to Mongo</a></li>
+<li><a class="reference internal" href="#module-utils.migration">REST API Utils - Migration</a><ul>
+<li><a class="reference internal" href="#utils.migration.migrate_data_from_mongo_to_django"><code class="docutils literal notranslate"><span class="pre">migrate_data_from_mongo_to_django()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">HW_14_DJANGO  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">HW_14_DJANGO documentation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Krasnozhon_A.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>
